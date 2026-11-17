@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#111923">
+  <title>SCRYVO Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="splash" class="splash-screen">
+    <div class="splash-center">
+      <div class="splash-mark" aria-hidden="true">
+        <span class="mark-piece piece-a"></span><span class="mark-piece piece-b"></span><span class="mark-piece piece-c"></span>
+      </div>
+      <div class="splash-word">SCRYVO</div>
+      <div class="splash-subtitle">A SMALL STUDIO FOR BIG IDEAS</div>
+      <div class="splash-orbit"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
+
+  <section id="authScreen" class="auth-screen hidden">
+    <div class="auth-aside">
+      <div class="brand-lockup"><span class="brand-mark"><i></i><i></i><i></i></span><span>SCRYVO</span></div>
+      <div class="mascot-stage">
+        <svg class="mascot" viewBox="0 0 280 230" role="img" aria-label="SCRYVO mascot, a small geometric paper creature">
+          <path d="M53 143 127 35q9-13 21 0l77 107q8 12-6 18l-141 22q-18 3-25-10z" fill="#f2b84b" stroke="#182333" stroke-width="7" stroke-linejoin="round"/>
+          <path d="m116 64 30 33 34-14-27 55-72 13z" fill="#fff3d8" stroke="#182333" stroke-width="6" stroke-linejoin="round"/>
+          <path d="m106 118 22 9m37-8 19-8" stroke="#182333" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="120" cy="105" r="5" fill="#182333"/><circle cx="166" cy="101" r="5" fill="#182333"/>
+          <path d="M130 146q14 11 27-1" fill="none" stroke="#182333" stroke-width="5" stroke-linecap="round"/>
+          <path d="m62 169-18 18m188-44 19 11" stroke="#182333" stroke-width="7" stroke-linecap="round"/>
+          <path d="m86 192 22 7m80-13 22-10" stroke="#182333" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+        <div class="mascot-shadow"></div>
+        <span class="mascot-spark spark-one">✳</span><span class="mascot-spark spark-two">+</span>
+      </div>
+      <div class="aside-copy">
+        <p class="eyebrow">MAKE IT MOVE</p>
+        <h1>Ideas are better<br>when they <em>play.</em></h1>
+        <p>Build stories, animations and small games with blocks you can see, move and understand.</p>
+      </div>
+      <div class="aside-foot"><span>CREATE</span><b>·</b><span>CODE</span><b>·</b><span>PLAY</span><span class="aside-version">STUDIO 0.1</span></div>
+    </div>
+    <div class="auth-main">
+      <div class="auth-card">
+        <div class="auth-kicker">YOUR WORKSPACE STARTS HERE</div>
+        <h2 id="authTitle">Welcome back</h2>
+        <p id="authSubtitle" class="muted">Sign in to continue creating.</p>
+        <div class="auth-tabs"><button class="auth-tab active" data-auth-mode="login">Log in</button><button class="auth-tab" data-auth-mode="register">Create account</button></div>
+        <form id="authForm" autocomplete="off">
+          <label class="field-label" for="usernameInput">Username</label>
+          <input id="usernameInput" class="text-field" name="username" maxlength="22" minlength="3" placeholder="Your username" required autocomplete="username" autocapitalize="none">
+          <label class="field-label" for="passwordInput">Password</label>
+          <input id="passwordInput" class="text-field" name="password" type="password" minlength="6" placeholder="At least 6 characters" required autocomplete="current-password">
+          <div id="confirmWrap" class="hidden"><label class="field-label" for="confirmInput">Confirm password</label><input id="confirmInput" class="text-field" type="password" minlength="6" placeholder="Type it again" autocomplete="new-password"></div>
+          <div id="authMessage" class="form-message" role="status"></div>
+          <button id="authSubmit" class="primary-button auth-submit" type="submit">Log in <span>→</span></button>
+        </form>
+        <div class="local-note"><span class="status-dot"></span> LOCAL ACCOUNT · NO SERVER REQUIRED</div>
+      </div>
+      <div class="auth-corner">A CREATIVE SPACE THAT BELONGS TO YOU</div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="dashboard hidden">
+    <header class="dash-header">
+      <div class="brand-lockup compact"><span class="brand-mark"><i></i><i></i><i></i></span><span>SCRYVO</span></div>
+      <div class="dash-header-right"><span class="local-chip"><i></i> LOCAL WORKSPACE</span><button id="profileButton" class="profile-button"><span id="profileInitial">S</span><span id="profileName">Creator</span><b>⌄</b></button></div>
+      <div id="profileMenu" class="profile-menu hidden"><div class="profile-menu-head"><strong id="menuUsername">Creator</strong><small>On this device</small></div><button id="tutorialAgainBtn">Start tutorial again</button><button id="logoutBtn" class="danger-menu">Log out</button></div>
+    </header>
+    <main class="dashboard-body">
+      <div class="dashboard-intro"><div><p class="eyebrow">YOUR CREATIVE DESK</p><h1>Good to see you, <span id="welcomeName">creator</span>.</h1><p class="muted">Pick up where you left off, or start with a fresh canvas.</p></div><button id="newProjectBtn" class="primary-button new-project-button"><span class="plus-mark">+</span> New project</button></div>
+      <div class="dash-section-head"><div><h2>Your projects</h2><p class="muted">Saved on this device, under this account.</p></div><label class="search-box"><span>⌕</span><input id="projectSearch" placeholder="Find a project" type="search"></label></div>
+      <div id="projectGrid" class="project-grid"></div>
+      <div class="dashboard-foot"><span class="foot-mascot">✳</span><span>Make something small. Make it yours.</span><button id="importProjectBtn" class="quiet-button">Import .scryvo</button><input id="projectImportInput" type="file" accept=".scryvo,.json,application/json" hidden></div>
+    </main>
+  </section>
+
+  <section id="editor" class="editor hidden">
+    <header class="editor-header">
+      <button id="homeBtn" class="header-icon" title="Back to projects">←</button>
+      <div class="editor-brand"><span class="brand-mark tiny"><i></i><i></i><i></i></span><b>SCRYVO</b><span class="header-slash">/</span><input id="projectTitleInput" aria-label="Project name" maxlength="48" value="Untitled project"></div>
+      <div class="save-state"><i id="saveDot"></i><span id="saveLabel">All changes saved</span></div>
+      <div class="editor-actions"><button id="undoBtn" class="header-icon" title="Undo">↶</button><button id="redoBtn" class="header-icon" title="Redo">↷</button><button id="saveBtn" class="header-button">Save</button><button id="runBtn" class="run-button"><span>▶</span> Run</button><button id="stopBtn" class="stop-button" disabled><span>■</span> Stop</button><button id="editorProfileBtn" class="mini-profile" title="Profile">S</button></div>
+      <div id="editorProfileMenu" class="profile-menu editor-profile-menu hidden"><div class="profile-menu-head"><strong id="editorMenuUsername">Creator</strong><small>On this device</small></div><button id="editorTutorialBtn">Start tutorial again</button><button id="editorLogoutBtn" class="danger-menu">Log out</button></div>
+    </header>
+    <main class="editor-main">
+      <section class="code-panel" id="codePanel">
+        <div class="category-rail" id="categoryRail">
+          <button class="category active" data-category="motion"><i class="cat-dot"></i><span>Motion</span></button>
+          <button class="category" data-category="looks"><i class="cat-dot"></i><span>Looks</span></button>
+          <button class="category" data-category="sound"><i class="cat-dot"></i><span>Sound</span></button>
+          <button class="category" data-category="events"><i class="cat-dot"></i><span>Events</span></button>
+          <button class="category" data-category="control"><i class="cat-dot"></i><span>Control</span></button>
+          <button class="category" data-category="sensing"><i class="cat-dot"></i><span>Sensing</span></button>
+          <button class="category" data-category="operators"><i class="cat-dot"></i><span>Operators</span></button>
+          <button class="category" data-category="variables"><i class="cat-dot"></i><span>Variables</span></button>
+          <button class="category" data-category="myblocks"><i class="cat-dot"></i><span>My blocks</span></button>
+        </div>
+        <div class="block-palette"><div class="palette-heading"><span id="paletteCategoryName">Motion</span><small>DRAG OR TAP A BLOCK</small></div><div id="paletteBlocks" class="palette-blocks"></div><div class="palette-tip"><span>✧</span> Blocks snap into a stack.</div></div>
+      </section>
+
+      <section id="workspacePanel" class="workspace-panel">
+        <div class="workspace-topline"><div class="editor-tabs"><button class="editor-tab active" data-editor-tab="code">Code</button><button class="editor-tab" data-editor-tab="costumes">Costumes</button><button class="editor-tab" data-editor-tab="sounds">Sounds</button></div><div class="workspace-tools"><span id="selectedSpriteLabel">Sprite: Pip</span><button id="zoomOutBtn" class="small-tool" title="Zoom out">−</button><span id="zoomLabel">100%</span><button id="zoomInBtn" class="small-tool" title="Zoom in">+</button></div></div>
+        <div id="codeView" class="editor-view code-view"><div class="workspace-grid"></div><div id="workspaceScroll" class="workspace-scroll"><div id="workspaceDrop" class="drop-zone root-drop" data-parent-id="root"><div class="workspace-empty"><div class="empty-block-icon">⌁</div><strong>Start with a block</strong><span>Tap a block on the left or drag it here.</span></div></div></div><div class="workspace-bottom"><span>WORKSPACE</span><span id="blockCount">0 BLOCKS</span></div></div>
+        <div id="costumeView" class="editor-view asset-view hidden"><div class="asset-view-head"><div><h3>Costumes</h3><p class="muted">Change how your sprite looks.</p></div><div class="asset-actions"><button id="costumeLibraryBtn" class="soft-button">Costume library</button><button id="uploadCostumeBtn" class="soft-button">Upload image</button><button id="drawCostumeBtn" class="soft-button accent-soft">Draw</button><input id="imageImportInput" type="file" accept="image/png,image/jpeg,image/webp" hidden></div></div><div id="costumeGrid" class="asset-grid"></div></div>
+        <div id="soundView" class="editor-view asset-view hidden"><div class="asset-view-head"><div><h3>Sounds</h3><p class="muted">Choose, upload or record a sound.</p></div><div class="asset-actions"><button id="soundLibraryBtn" class="soft-button">Sound library</button><button id="uploadSoundBtn" class="soft-button">Upload audio</button><button id="recordSoundBtn" class="soft-button record-soft">Record voice</button><input id="soundImportInput" type="file" accept="audio/*" hidden></div></div><div id="soundGrid" class="sound-grid"></div><div class="sound-footnote">Preview a sound before adding it. Recording uses your device microphone.</div></div>
+      </section>
+
+      <aside class="stage-panel">
+        <div class="stage-panel-head"><div><span class="eyebrow">LIVE PREVIEW</span><strong>Stage</strong></div><div class="stage-head-actions"><button id="backdropBtn" class="stage-tool">Backdrop ▾</button><button id="fullscreenStageBtn" class="stage-tool" title="Expand stage">⛶</button></div></div>
+        <div class="stage-wrap"><div class="stage-frame"><canvas id="stageCanvas" width="480" height="360"></canvas><div id="speechBubble" class="speech-bubble hidden"></div></div></div>
+        <div class="stage-controls"><button id="greenFlagBtn" class="green-flag" title="Run project">▶</button><button id="stageStopBtn" class="stage-stop" title="Stop project" disabled>■</button><span class="stage-coordinate" id="coordinateLabel">x: 0&nbsp;&nbsp; y: 0</span><span class="stage-scale">480 × 360</span></div>
+        <div class="sprite-area"><div class="sprite-area-head"><div><strong>Sprites</strong><span id="spriteCount" class="count-pill">1</span></div><button id="addSpriteBtn" class="add-sprite-btn" data-tutorial-target="addSprite">+ Add sprite</button></div><div id="spriteStrip" class="sprite-strip"></div><div class="sprite-properties"><div class="property-name"><span>Selected</span><strong id="spriteNameValue">Pip</strong></div><label><span>X</span><input id="spriteX" type="number" value="0"></label><label><span>Y</span><input id="spriteY" type="number" value="0"></label><label><span>Size</span><input id="spriteSize" type="number" value="100"></label></div></div>
+        <div class="stage-footer"><button id="backdropLibraryBtn" class="quiet-button">Choose backdrop</button><button id="drawBackdropBtn" class="quiet-button">Draw backdrop</button><button id="importBackdropBtn" class="quiet-button">Import backdrop</button><input id="backdropImportInput" type="file" accept="image/png,image/jpeg,image/webp" hidden></div>
+      </aside>
+    </main>
+  </section>
+
+  <div id="modalLayer" class="modal-layer hidden" role="dialog" aria-modal="true">
+    <div id="modalCard" class="modal-card"><button id="modalClose" class="modal-close" aria-label="Close">×</button><div id="modalContent"></div></div>
+  </div>
+
+  <div id="tutorialLayer" class="tutorial-layer hidden">
+    <div id="tutorialSpotlight" class="tutorial-spotlight"></div>
+    <div id="tutorialCursor" class="tutorial-cursor"><svg viewBox="0 0 32 40"><path d="M4 3v25l7-7 5 13 5-2-5-12h10z" fill="#fff" stroke="#172335" stroke-width="2" stroke-linejoin="round"/></svg></div>
+    <div id="tutorialCard" class="tutorial-card"><div class="tutorial-card-top"><span class="tutorial-step-count">STEP <b id="tutorialStepNumber">1</b> / <b id="tutorialStepTotal">5</b></span><button id="tutorialExitBtn">Exit tutorial</button></div><h3 id="tutorialTitle">Let's create something.</h3><p id="tutorialText">Follow the highlight. This step stays here until you complete it.</p><div class="tutorial-progress"><i id="tutorialProgressBar"></i></div><div class="tutorial-hint"><span>↳</span> The pointer will wait for you.</div></div>
+  </div>
+
+  <div id="toastHost" class="toast-host"></div>
+  <script src="app.js"></script>
+</body>
+</html>
